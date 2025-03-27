@@ -1,0 +1,47 @@
+@startuml Airbnb
+' Diagramme de classes
+class Utilisateur {
+  -id: int
+  -nom: string
+  -email: string
+  +s'inscrire()
+  +seConnecter()
+}
+
+class Client {
+  +reserverLogement()
+}
+
+class Proprietaire {
+  +gererLogement()
+  +accepterReservation()
+  +refuserReservation()
+}
+
+class Reservation {
+  -id: int
+  -dateDebut: date
+  -dateFin: date
+  -statut: string
+  +confirmer()
+  +annuler()
+}
+
+class Logement {
+  -id: int
+  -adresse: string
+  -prix: float
+  +publier()
+  +supprimer()
+}
+
+
+
+
+Utilisateur <|-- Client
+Utilisateur <|-- Proprietaire
+Proprietaire --* Logement
+Client -- Reservation
+Proprietaire -- Reservation
+Logement -- Reservation
+@enduml
