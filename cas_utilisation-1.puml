@@ -1,0 +1,32 @@
+@startuml Cas d'utilisation de la réservation
+
+actor Client
+actor Propriétaire
+
+rectangle "Cas d’utilisation de la réservation" {
+  usecase "Rechercher un logement" as R1
+  usecase "Consulte les disponibilités" as R2
+  usecase "Demander une réservation" as R3
+  usecase "Payer la réservation" as R4
+  usecase "Recevoir une notification de réservation" as R5
+  usecase "Examine la demande de réservation" as R6
+  usecase "Accepter la réservation" as R7
+  usecase "Refuser la réservation" as R8
+  usecase "Notification du client" as R9
+}
+
+Client --> R1
+Client --> R2
+Client --> R3
+Client --> R4
+Client --> R5
+Propriétaire --> R6
+Propriétaire --> R7
+Propriétaire --> R8
+Propriétaire --> R9
+
+R7 ..> R4 
+R8 ..> R5 
+R7 ..> R5 
+
+@enduml

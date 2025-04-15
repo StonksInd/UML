@@ -1,0 +1,29 @@
+@startuml Cas d'utilisation de l'annulation
+
+actor Client
+actor Propriétaire
+
+rectangle "Cas d’utilisation de l’annulation de réservation" {
+  usecase "Consulter les réservations" as A1
+  usecase "Demander annulation" as A2
+  usecase "Vérification d'annulation" as A3
+  usecase "Remboursement" as A4
+  usecase "Confirmer annulation" as A5
+  usecase "Notification d'annulation" as A6
+  usecase "Mise à jour du logement" as A7
+}
+
+Client --> A1
+Propriétaire --> A1
+Client --> A2
+Propriétaire --> A2
+Client --> A6
+Propriétaire --> A6
+
+A2 --> A3
+A3 --> A4
+A4 --> A5
+A5 --> A6
+A5 --> A7
+
+@enduml

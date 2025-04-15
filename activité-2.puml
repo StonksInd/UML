@@ -1,0 +1,27 @@
+@startuml Activité de l'annulation
+
+start
+
+:Consultation des réservations;
+:Sélectionner une réservation;
+
+if (Annulation) then (Client)
+  :Demande d'annulation par le client;
+  :Vérification de la politique;
+  :Remboursement du logement;
+  :Confirmation de l'annulation;
+  :Notification au propriétaire;
+else (Propriétaire)
+  :Demande d'annulation par le propriétaire;
+  :Vérification de la politique;
+  :Remboursement total du logement;
+  :Confirmation de l'annulation;
+  :Notification au client;
+endif
+
+:Disponibilité du logement;
+:Traitement du remboursement;
+
+stop
+
+@enduml

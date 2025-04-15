@@ -1,0 +1,36 @@
+@startuml Activité de la réservation
+
+start
+
+:Recherche de logement;
+:Sélection du logement;
+:Vérification des disponibilités;
+
+if (Dates disponibles) then (oui)
+  :Demande de réservation;
+  :Notification au propriétaire;
+  :Examination de la demande par le propriétaire;
+  
+  if (Demande acceptée) then (oui)
+    :Accepte la demande;
+    :Notification au client;
+    :Paiement de la réservation;
+    :Confirmation de la réservation;
+  else (non)
+    :Refuse la demande;
+    :Notification au client pour un refus;
+    
+    if (Chercher un autre logement) then (oui)
+      :Retour à la recherche de logement;
+    else (non)
+      :Abandonner la recherche;
+    endif
+  endif
+else (non)
+  :Proposition d'autres dates;
+  :Retour à la vérification des disponibilités;
+endif
+
+stop
+
+@enduml
