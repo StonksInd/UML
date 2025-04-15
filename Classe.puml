@@ -4,8 +4,8 @@ class Utilisateur {
   -id: int
   -nom: string
   -email: string
-  +s'inscrire()
-  +seConnecter()
+  +inscription()
+  +connexion()
 }
 
 class Client {

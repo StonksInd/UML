@@ -1,0 +1,23 @@
+@startuml airbnb
+actor Client as Client
+entity     APP    as APP
+actor       Proprietaire as Proprietaire
+entity Reservation as Reservation
+
+
+Client -> APP : cherche un logement
+APP -> Proprietaire : demande si logement dispo
+Proprietaire -> Proprietaire
+Proprietaire -> APP : logement dispo
+APP -> Client : notifie logement dispo
+Client -> APP : demande reservation
+APP -> Reservation : cree reservation
+Client -> Reservation : annuler
+Reservation -> APP : annulation
+APP -> Proprietaire : notifie annulation
+
+
+
+
+
+@enduml

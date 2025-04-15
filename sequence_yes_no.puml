@@ -1,0 +1,28 @@
+@startuml airbnb
+actor Client as Client #red
+
+entity     APP    as APP
+actor       Proprietaire as Proprietaire
+entity Reservation as Reservation
+entity entite_de_payment as entite_de_payment
+
+Client -> APP : cherche un logement
+APP -> Proprietaire : demande si logement dispo
+Proprietaire -> Proprietaire
+
+alt accord du proprietaire
+Proprietaire -> APP : logement dispo
+APP -> Client : notifie logement dispo
+Client -> APP : demande reservation
+APP -> Reservation : cree reservation
+Reservation -> entite_de_payment : cree payement
+entite_de_payment -> APP : payement effectue
+APP -> Proprietaire : notifie reservation et payement
+end
+
+alt refus du proprietaire
+Proprietaire -> APP : logement indispo
+APP -> Client : notifie logement indispo
+end
+
+@enduml
